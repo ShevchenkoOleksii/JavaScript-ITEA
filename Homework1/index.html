@@ -4,9 +4,46 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Homework1</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <div class="container">
+    <h1>Homework1</h1>
+
+    <ul id="uniqueID">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+    </ul>
+
+    <div>
+        <input type="button" value="Вибрати перший елемент" onclick="chooseFirstLi()"> 
+        <input type="button" value="Вибрати останній елемент" onclick="chooseLastLi()"> 
+        <input type="button" value="Вибрати наступний елемент" onclick="nextElement()"> 
+        <input type="button" value="Вибрати попередній елемент" onclick="previousElement()">
+        <br> 
+        <input id="text" type="text" placeholder="Новий елемент">
+        <br> 
+        <input type="button" value="Добавити елемент" onclick="addElement()"> 
+        <input type="button" value="Добавити елемент в кінець" onclick="addElementToEnd()"> 
+        <input type="button" value="Добавити на початку" onclick="addElementToStart()">
+        <br> 
+        <input type="button" value="Видалити елемент" onclick="removeElement()"> 
+
+        <!-- <textarea id="textarea"></textarea> -->
+        
+
+        
+    </div>
+</div>
+    <script src="script.js"></script>
 </body>
 </html>
