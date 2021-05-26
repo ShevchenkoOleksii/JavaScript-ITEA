@@ -1,0 +1,48 @@
+body {
+    background-color: #081d278e;
+}
+
+li {
+    list-style-type: none;
+    background-color: rgb(234, 223, 245);
+    margin: 5px;
+    width: 300px;
+    height: 16px;
+    padding: 5px;
+    padding-left: 15px;
+    font-weight: bold;
+    border-radius: 4px;
+
+}
+
+input {
+    padding: 5px;
+    background: rgb(129, 221, 169);
+    border-radius: 4px;
+    border: 1px solid black;
+    margin: 2px;
+    font-weight: bold;
+    outline: none;
+
+}
+
+input[type="text"] {
+    background: rgb(203, 250, 223);
+
+}
+
+#myElement {
+    background-color: rgb(29, 219, 29);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70vw;
+    height: 90vh;
+    /* background-color: rgba(8, 20, 122, 0.63); */
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 5%);
+}
