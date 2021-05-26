@@ -36,7 +36,16 @@ function nextElement() {
         return;
     }
 
-    if (nextLi.nodeType == 3) {
+    // if (nextLi.nodeType == 3) {
+    //     nextLi = nextLi.nextSibling;
+    //     if (!nextLi) {
+    //         removeIdNames();
+    //         var firstLi = document.getElementById('uniqueID').firstElementChild;
+    //         firstLi.setAttribute('id', 'myElement');
+    //         return;
+    //     }
+    // }
+    while (nextLi.nodeType == 3) {
         nextLi = nextLi.nextSibling;
         if (!nextLi) {
             removeIdNames();
@@ -64,7 +73,17 @@ function previousElement() {
         return;
     }
 
-    if (previousLi.nodeType == 3) {
+    // if (previousLi.nodeType == 3) {
+    //     previousLi = previousLi.previousSibling;
+
+    //     if (!previousLi) {
+    //         removeIdNames();
+    //         var lastLi = document.getElementById('uniqueID').lastElementChild;
+    //         lastLi.setAttribute('id', 'myElement');
+    //         return;
+    //     }
+    // }
+    while (previousLi.nodeType == 3) {
         previousLi = previousLi.previousSibling;
 
         if (!previousLi) {
@@ -74,6 +93,7 @@ function previousElement() {
             return;
         }
     }
+
     removeIdNames();
     previousLi.setAttribute('id', 'myElement');
 }
