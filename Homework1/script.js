@@ -111,6 +111,7 @@ function addElement() {
     myElParent.insertBefore(newLi, myEl.nextSibling);
     removeIdNames();
     newLi.setAttribute('id', 'myElement');
+    newLi.setAttribute('onclick', 'currentElement(this)');
 }
 
 function addElementToEnd() {
@@ -120,6 +121,7 @@ function addElementToEnd() {
     document.getElementById('uniqueID').appendChild(newLi);
     removeIdNames();
     newLi.setAttribute('id', 'myElement');
+    newLi.setAttribute('onclick', 'currentElement(this)');
 }
 
 function removeElement() {
@@ -141,4 +143,10 @@ function addElementToStart() {
     myElParent.insertBefore(newLi, myEl);
     removeIdNames();
     newLi.setAttribute('id', 'myElement');
+    newLi.setAttribute('onclick', 'currentElement(this)');
+}
+
+function currentElement(elem) {
+    removeIdNames();
+    elem.setAttribute('id', 'myElement');
 }
