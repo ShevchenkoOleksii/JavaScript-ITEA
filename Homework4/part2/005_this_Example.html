@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ключевое слово this</title>
+    <style>
+        div {
+            background-color:green;
+            display: inline-block;
+            height: 150px;
+            width: 150px;
+            margin: 10px;
+            color: white;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+        window.onload = function () {
+            var divArr = document.getElementsByTagName("div");
+            for (var i = 0; i < divArr.length; i++) {
+                divArr[i].onclick = function () {
+                    this.style.backgroundColor = "red";
+                    this.innerHTML = this.style.backgroundColor;
+                }
+                divArr[i].onmouseover = function () {
+                    const MAX_NUMBER = 255;
+                    var R = Math.floor(Math.random() * MAX_NUMBER);
+                    var G = Math.floor(Math.random() * MAX_NUMBER);
+                    var B = Math.floor(Math.random() * MAX_NUMBER);
+                    var randomColor = `rgb(${R}, ${G}, ${B})`;
+                    console.log(randomColor);
+                    this.style.backgroundColor = randomColor;
+                    this.innerHTML = randomColor;
+                };
+            }
+            window.onbeforeunload = function () {
+                return "";
+            };
+        };
+    </script>
+
+</body>
+</html>
