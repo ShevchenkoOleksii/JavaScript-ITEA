@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+	<title>HomeWork5_2.1</title>
+	<style>
+		* {
+			margin: 0;
+			background: rgba(128, 128, 128, 0.712);
+		}
+		#myDiv, img {
+			width: 250px;
+			position: absolute;
+			background-color: transparent;
+		}
+		#container {
+			width: 100vw;
+			position: relative;
+			display: flex;
+			flex-direction: column;
+		}
+		#button {
+			position: absolute;
+			top: 180px;
+			width: 80px;
+			height: 30px;
+			border-radius: 4px;
+			border: 1px solid white;
+			background: greenyellow;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<!-- 
+	1. drag and drop;
+	2. создайте div, при клике на него, div начинает двигаться вправо, при клике на кнопку - останавливается,
+	при попадании div к краю окна, он переходит к началу окна.
+	-->
+	<div id="container">
+		<div id="myDiv">
+			<img src="tom.png">
+		</div>
+		<input id="button" type="button" value="STOP">
+	</div>
+
+	<script>
+		var myDiv = document.getElementById('myDiv');
+		var container = document.getElementById('container');
+		var button = document.getElementById('button');
+		var setInt;
+		var leftCoord = 0;
+
+		myDiv.addEventListener('click', go);
+		button.addEventListener('click', stopDiv);
+
+		function moveToTheRight() {
+			leftCoord += 5;
+			myDiv.style.left = `${leftCoord}px`;
+
+			if (leftCoord == container.clientWidth - myDiv.clientWidth || leftCoord > container.clientWidth - myDiv.clientWidth) {
+				leftCoord = 0;
+			}
+		}
+
+		function go() {
+			myDiv.removeEventListener('click', go);
+			setInt = setInterval(moveToTheRight, 25);
+		}
+
+		function stopDiv() {
+			clearInterval(setInt);
+			myDiv.addEventListener('click', go);
+		}
+	</script>
+</body>
+</html>
