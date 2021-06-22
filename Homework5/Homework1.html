@@ -1,0 +1,63 @@
+<!--
+Создайте ссылку и див с текстом внутри, который изначально при загрузке страницы будет скрыт.
+При клике на ссылку див появляется, если повторно нажать ссылку див и текст должны пропасть.
+Также создайте кнопку, которая будет отменять выполнение обработчика клика по ссылке.
+ -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width,user-scalable=no">
+        <title>Homework5_1</title>
+        <style>
+            .main {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                background-color: rgb(163, 207, 88);
+            }
+            .someText {
+                display: block;
+            }
+
+            .someText.hidden {
+                display: none;
+            }
+
+            .main > div {
+                margin: 10px;
+                font-size: 24px;
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="main">
+            <div class="forLink">
+                <a href="#">Show text</a>
+            </div>
+            <div class="someText hidden">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque excepturi suscipit obcaecati velit quo. Voluptatibus, aperiam? Esse fugit, fuga beatae, deleniti obcaecati maiores dignissimos iusto corporis in voluptas dolore facere!
+            </div>
+            <div class="input">
+                <input type="button" value="Cancel">
+            </div>
+        </div>
+
+        <script>
+            var myLink = document.querySelector('.forLink');
+            var someText = document.querySelector('.someText');
+            var button = document.querySelector('.input');
+
+            myLink.addEventListener('click', showDiv);
+            button.addEventListener('click', toRemoveEventListener);
+
+            function showDiv () {
+                someText.classList.toggle('hidden');
+            }
+
+            function toRemoveEventListener () {
+                myLink.removeEventListener('click', showDiv);
+            }
+        </script>
+    </body>
+</html>

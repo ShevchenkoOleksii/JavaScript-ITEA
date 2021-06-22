@@ -25,7 +25,7 @@ function stopStopwatch() {
 }
 
 function resetStopwatch() {
-    seconds.innerHTML = 1;
+    seconds.innerHTML = 30;
     timeInput.value = 30;
 }
 

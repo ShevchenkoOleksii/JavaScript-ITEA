@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>Homework5_2.1</title>
+</head>
+<body>
+    <!--
+    1. Создайте 5 блоков с текстом. Добавьте в каждый из блоков кнопку для его удаления.
+    Используйте только один обработчик.
+
+    2. Доработайте пример 004_Attr_Tech.html таким образом, чтобы при наведении на span элементы,
+    подсказка сплыва под ними, а не в модальном окне. Используйте addEventListener -->
+
+    <div class="main">
+        <div class="someText">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis placeat reprehenderit ad commodi hic magnam rerum. Necessitatibus quibusdam dolorem nesciunt aliquid, ad velit, odio nihil ab officiis cumque mollitia non?
+            <input type="button" value="remove text">
+        </div>
+        <div class="someText">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente asperiores quae eos molestiae nemo ipsum delectus reprehenderit earum corporis, labore voluptatum excepturi? Hic praesentium ullam neque excepturi non corporis natus.
+            <input type="button" value="remove text">
+        </div>
+        <div class="someText">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque perferendis a mollitia nulla dicta, velit possimus accusantium, nihil, sunt cum ex itaque vero quisquam corrupti ipsum inventore corporis tempore molestias!
+            <input type="button" value="remove text">
+        </div>
+        <div class="someText">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor harum laborum provident tenetur quia saepe non voluptas accusantium quod eligendi quisquam iste cumque doloribus at, impedit corporis a? Facilis, delectus.
+            <input type="button" value="remove text">
+        </div>
+        <div class="someText">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, molestiae. Rem qui officia eaque delectus explicabo sint quam laboriosam unde minima, quia optio libero quidem dolores laborum nam a labore.
+            <input type="button" value="remove text">
+        </div>
+    </div>
+    <script>
+        var main = document.querySelector('.main');
+        main.addEventListener('click', removeText);
+
+        function removeText(e) {
+            var target = e.target;
+            if (target.tagName === 'INPUT') {
+                target.parentElement.innerHTML = '';
+            }
+        }
+        
+    </script>
+</body>
+</html>

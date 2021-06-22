@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Homework5_2.2</title>
+
+  <style>
+    #main-div {
+      display: flex;
+      flex-direction: row;
+    }
+
+    div {
+      margin: 4px;
+    }
+
+    #active {
+      color: white;
+      background-color: blue;
+    }
+  </style>
+
+  <script>
+    window.onload = function () {
+      var mainDiv = document.getElementById("main-div");
+      mainDiv.addEventListener('mouseover', showText);
+      mainDiv.addEventListener('mouseout', removeText);
+
+      function showText(e) {
+        var target = e.target;
+        if (target.tagName === 'SPAN') {
+          var dataToggleId = target.getAttribute('data-tooltip');
+          target.insertAdjacentHTML('afterend', `</br><span>${dataToggleId}</span>`);
+          var someBr = target.nextSibling;
+          var secondSpan = target.nextSibling.nextSibling;
+          someBr.setAttribute('id', 'br');
+          secondSpan.setAttribute('id', 'active');
+        }
+      }
+
+      function removeText(e) {
+        var target = e.target;
+        var someBr = document.getElementById('br');
+        var active = document.getElementById('active');
+        var parent = target.parentElement;
+        if (someBr) {
+          parent.removeChild(someBr);
+
+        }
+        if (active) {
+          parent.removeChild(active);
+
+        }
+      }
+    };
+  </script>
+</head>
+
+<body>
+  <div id="main-div">
+
+    <div>
+      <span data-tooltip="наведите">наведите</span>
+    </div>
+
+    <div>
+      <span data-tooltip="для">для</span>
+    </div>
+
+    <div>
+      <span data-tooltip="подсказки">подсказки</span>
+    </div>
+
+  </div>
+</body>
+
+</html>
