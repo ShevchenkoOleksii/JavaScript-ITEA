@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Doctor {
+            constructor(firstname, lastname) {
+                this.firstname = firstname;
+                this.lastname = lastname;
+
+                this.walk = function () {
+                    console.log(`${this.firstname} ${this.lastname} walks`);
+                };
+
+                this.eat = function () {
+                    console.log(`${this.firstname} ${this.lastname} eats`);
+                };
+
+                this.drink = function () {
+                    console.log(`${this.firstname} ${this.lastname} drinks`);
+                };
+
+                this.cure = function () {
+                    console.log(`${this.firstname} ${this.lastname} cures`);
+                };
+            }
+        }
+
+        class Nurse extends Doctor {
+            constructor(firstname, lastname) {
+                super(firstname, lastname);
+            }
+        }
+
+        class Dentist extends Doctor {
+            constructor(firstname, lastname) {
+                super(firstname, lastname);
+                this.cure = function () {
+                    console.log(`${this.firstname} ${this.lastname} treats teeth`);
+                };
+            }
+        }
+
+        class Surgeon extends Doctor {
+            constructor(firstname, lastname) {
+                super(firstname, lastname);
+                this.cure = function () {
+                    console.log(`${this.firstname} ${this.lastname} performs operations`);
+                };
+            }
+        }
+
+        var someNurse = new Nurse('Sarah', 'Howells');
+        var someDoctor = new Doctor('David', 'Guetta');
+        var someDentist = new Dentist('Tom', 'Ivanov');
+        var someSurgeon = new Surgeon('Oleg', 'Popov');
+        
+        someDoctor.cure();
+        someDoctor.drink();
+        someNurse.cure();
+        someSurgeon.cure();
+        someDentist.cure();
+    </script>
+</body>
+</html>

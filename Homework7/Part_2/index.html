@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Man {
+            constructor(firstname, lastname) {
+                this.firstname = firstname;
+                this.lastname = lastname;
+            }
+
+            walk() {
+                console.log(`${this.firstname} ${this.lastname} walks`);
+            }
+
+            eat() {
+                console.log(`${this.firstname} ${this.lastname} eats`);
+            }
+
+            drink() {
+                console.log(`${this.firstname} ${this.lastname} drinks`);
+            }
+        }
+
+        class Soldier extends Man {
+            constructor(firstname, lastname) {
+                super(firstname, lastname);
+            }
+
+            shoot() {
+                console.log(`${this.firstname} ${this.lastname} shoots`);
+            }
+        }
+
+        class Doctor extends Man {
+            constructor(firstname, lastname) {
+                super(firstname, lastname);
+            }
+
+            cure() {
+                console.log(`${this.firstname} ${this.lastname} cures`);
+            }
+        }
+
+        var someDoctor = new Doctor('Sarah', 'Howells');
+        var someSoldier = new Soldier('David', 'Guetta');
+       
+        someSoldier.shoot();
+        someDoctor.cure();
+        
+        someDoctor.drink();
+        someSoldier.walk();
+        someSoldier.eat();
+    </script>
+</body>
+</html>
