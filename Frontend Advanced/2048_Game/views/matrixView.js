@@ -1,7 +1,17 @@
 function MatrixView() {
     this.matrixModel = new MatrixModel();
+    this.controller = new Controller();
     this.template = document.getElementById('matrixTemplate').innerHTML;
+    this.className = 'table';
+    BaseView.call(this);
 }
+
+MatrixView.prototype = Object.create(BaseView.prototype);
+MatrixView.prototype.constructor = MatrixView;
+
+MatrixView.prototype.beforeRender = function () {
+    this.matrixModel.subscribe('changeData', this.reRender, this);
+};
 
 MatrixView.prototype.render = function () {
     var i, 
@@ -22,3 +32,8 @@ MatrixView.prototype.render = function () {
     // console.log(str);
     return this.template.replace(`{{matrix}}`, str);
 }
+
+MatrixView.prototype.afterRender = function () {
+    var newGameButton = document.getElementById('newGameBtn');
+    newGameButton.addEventListener('click', this.controller.onClickNewGame.bind(this));
+};
