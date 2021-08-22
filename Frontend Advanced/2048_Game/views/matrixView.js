@@ -17,23 +17,25 @@ MatrixView.prototype.render = function () {
     var i, 
     j, 
     attributes = this.matrixModel.attributes,
+    rowLength = attributes.grid.length,
+    colomnLength = attributes.grid[0].length,
     str = '';
 
-    for(i = 0; i < 4; i += 1) {
+    for(i = 0; i < rowLength; i += 1) {
         str += `<div class='row'>`;
 
-        for(j = 0; j < 4; j += 1) {
+        for(j = 0; j < colomnLength; j += 1) {
             str += `<div class='cell appear-${attributes.grid[i][j]}'>${attributes.grid[i][j]}</div>`;
         }
 
         str += `</div>`;
     }
 
-    // console.log(str);
     return this.template.replace(`{{matrix}}`, str);
 }
 
 MatrixView.prototype.afterRender = function () {
+    window.onkeydown = this.controller.onKeyPress.bind(this);
     var newGameButton = document.getElementById('newGameBtn');
     newGameButton.addEventListener('click', this.controller.onClickNewGame.bind(this));
 };

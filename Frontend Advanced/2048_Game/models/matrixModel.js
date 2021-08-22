@@ -1,19 +1,48 @@
 function MatrixModel() {
     BaseModel.call(this);
+var generalSize = 5;
+
     this.attributes = {
-        grid: [
-            ['', '', '', ''],
-            ['', '', '', ''],
-            ['', '', '', ''],
-            ['', '', '', ''],
-        ]
+        grid: Array(generalSize).fill([]).map(function () {
+            return Array(generalSize).fill('');
+        })
+        // grid: [
+        //     ['', '', '', ''],
+        //     ['', '', '', ''],
+        //     ['', '', '', ''],
+        //     ['', '', '', ''],
+        // ]
     }
+
+    this.getSize = function () {
+        return generalSize;
+    }
+
+    var instance = this;
+    MatrixModel = function () {
+        return instance;
+    }
+
+    this.displayDigitByKeyPress();
 }
 
 MatrixModel.prototype = Object.create(BaseModel.prototype);
 MatrixModel.prototype.constructor = MatrixModel;
 
-MatrixModel.prototype.insertNumber = function () {
-    this.attributes.grid[0][0] = '2';
+MatrixModel.prototype.randomPlace = function () {
+    return Math.floor(Math.random() * this.getSize());
+}
+
+MatrixModel.prototype.randomNumber = function () {
+    return Math.random() < 0.8 ? '2' : '4';
+}
+
+MatrixModel.prototype.displayDigitByKeyPress = function (code) {
+    this.attributes.grid[this.randomPlace()][this.randomPlace()] = this.randomNumber();
+    // this.attributes.grid[this.randomPlace()][this.randomPlace()] = this.randomNumber();
     this.publish('changeData');
+}
+
+MatrixModel.prototype.startNewGame = function () {
+    console.log('startNewGame');
 }

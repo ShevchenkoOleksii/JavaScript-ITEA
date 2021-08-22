@@ -1,6 +1,7 @@
 function SummaryView() {
     this.summaryModel = new SummaryModel();
     this.template = document.getElementById('summaryTemplate').innerHTML;
+    this.className = 'summary';
     BaseView.call(this);
 }
 
